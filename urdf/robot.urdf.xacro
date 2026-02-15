@@ -34,7 +34,7 @@
   <!-- Left Wheel -->
   <link name="left_wheel_link">
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="-.15 0 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
       </geometry>
@@ -42,7 +42,7 @@
     </visual>
 
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="-.15 0 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
       </geometry>
@@ -53,7 +53,7 @@
   <!-- Right Wheel -->
   <link name="right_wheel_link">
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="-.15 0 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
       </geometry>
@@ -61,7 +61,7 @@
     </visual>
 
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="-.15 0 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
       </geometry>
@@ -73,14 +73,14 @@
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel_link"/>
-    <origin xyz="0 ${wheel_separation/2} 0"/>
+    <origin xyz="0 ${wheel_separation * 0.5 + wheel_width*0.5} -${wheel_radius * 0.5}"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel_link"/>
-    <origin xyz="0 -${wheel_separation/2} 0"/>
+    <origin xyz="0 -${wheel_separation * 0.5 + wheel_width*0.5} -${wheel_radius * 0.5}"/>
     <axis xyz="0 1 0"/>
   </joint>
 
