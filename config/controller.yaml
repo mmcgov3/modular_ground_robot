@@ -1,0 +1,6 @@
+wheel_cmd_controller:
+  ros__parameters:
+    wheel_radius: 0.05
+    wheel_separation: 0.30
+    max_wheel_speed: 10.0
+    cmd_timeout_sec: 0.2

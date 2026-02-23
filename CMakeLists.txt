@@ -9,7 +9,9 @@ endif()
 find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -31,6 +33,18 @@ install(DIRECTORY
   rviz
   worlds
   DESTINATION share/${PROJECT_NAME}
+)
+
+add_executable(wheel_cmd_controller src/wheel_cmd_controller.cpp)
+ament_target_dependencies(wheel_cmd_controller
+  rclcpp
+  geometry_msgs
+  std_msgs
+)
+
+install(TARGETS
+  wheel_cmd_controller
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()
