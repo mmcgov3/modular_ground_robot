@@ -30,8 +30,8 @@ public:
       throw std::runtime_error("cmd_timeout_sec must be >= 0");
     }
 
-    left_pub_ = this->create_publisher<std_msgs::msg::Float64>("/left_wheel_cmd", 10);
-    right_pub_ = this->create_publisher<std_msgs::msg::Float64>("/right_wheel_cmd", 10);
+    left_pub_ = this->create_publisher<std_msgs::msg::Float64>("/left_wheel_cmd", 15);
+    right_pub_ = this->create_publisher<std_msgs::msg::Float64>("/right_wheel_cmd", 15);
 
     cmd_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
       "/cmd_vel", 10,
